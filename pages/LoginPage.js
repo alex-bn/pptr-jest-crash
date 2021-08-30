@@ -16,4 +16,12 @@ export default class LoginPage extends BasePage {
     await page.type('#user_password', password);
     await page.click('.btn-primary');
   }
+
+  async failedLogin(user, password) {
+    await page.waitForSelector('#login_form');
+    await page.type('#user_login', user);
+    await page.type('#user_password', password);
+    await page.click('.btn-primary');
+    await page.waitForSelector('.alert-error');
+  }
 }

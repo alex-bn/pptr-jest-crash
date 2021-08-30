@@ -18,7 +18,7 @@ describe('End-To-End Test', () => {
     topBar = new TopBar();
   });
 
-  it('should loaf homepage', async () => {
+  it('should load homepage', async () => {
     await homePage.visit();
     await homePage.isNavbarDisplayed();
   });
@@ -32,5 +32,21 @@ describe('End-To-End Test', () => {
       'subject',
       'Lorem Ipsum Comment'
     );
+  });
+
+  it('should fail the login', async () => {
+    await homePage.visit();
+    await topBar.isTopBarDisplayed();
+    await topBar.clickSignInButton();
+    await loginPage.isLoginFormDisplayed();
+    await loginPage.failedLogin('aaa', 'aaa');
+  });
+
+  it('should login to application', async () => {
+    await homePage.visit();
+    await topBar.isTopBarDisplayed();
+    await topBar.clickSignInButton();
+    await loginPage.isLoginFormDisplayed();
+    await loginPage.login('username', 'password');
   });
 });
