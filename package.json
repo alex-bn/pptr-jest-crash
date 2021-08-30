@@ -1,0 +1,21 @@
+{
+  "name": "jest-pptr",
+  "version": "1.0.0",
+  "description": "test framework using jest and puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --forceExit"
+  },
+  "author": "AB",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^27.1.0",
+    "jest-puppeteer": "^5.0.4",
+    "puppeteer": "^9.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "babel-jest": "^27.1.0"
+  }
+}

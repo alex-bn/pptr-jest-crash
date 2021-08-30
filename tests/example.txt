@@ -1,0 +1,48 @@
+import HomePage from '../pages/HomePage';
+import TopBar from '../pages/Components/TopBar';
+import LoginPage from '../pages/LoginPage';
+import FeedbackPage from '../pages/FeedbackPage';
+
+describe('Example', () => {
+  jest.setTimeout(15000);
+
+  let homepage;
+  let topbar;
+  // let loginpage;
+  let feedbackPage;
+
+  beforeAll(async () => {
+    homepage = new HomePage();
+    // loginpage = new LoginPage();
+    topbar = new TopBar();
+    feedbackPage = new FeedbackPage();
+  });
+  it('homepage should work', async () => {
+    //ToDo
+    await homepage.visit();
+  });
+
+  it('navbar should be displayed', async () => {
+    await homepage.isNavbarDisplayed();
+    await topbar.isTopBarDisplayed();
+  });
+
+  // it('try to login', async () => {
+  //   await loginpage.visit();
+  //   await loginpage.isLoginFormDisplayed();
+  //   await loginpage.login('username', 'password');
+  //   await loginpage.wait(5000);
+  // });
+
+  it('feedback should work', async () => {
+    await feedbackPage.visit();
+    await feedbackPage.isFeedbackFormDisplayed();
+    await feedbackPage.submitFeedback(
+      'Jon',
+      'jon@mailinator.com',
+      'Test',
+      'Comment'
+    );
+    await feedbackPage.wait(5000);
+  });
+});
